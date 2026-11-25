@@ -1,0 +1,13 @@
+PokéChess Arena — resource sources
+
+Unofficial fan game. Pokémon characters, names, artwork and original music belong to their respective rights holders. Public availability of community files is not a claim of official authorization.
+
+Pokémon sprites and item images: https://github.com/PokeAPI/sprites
+Cries: https://github.com/PokeAPI/cries
+Community visual references/assets: https://github.com/smogon/pokemon-showdown-client
+Music sources: https://github.com/ItzGray/snakewood-showdown-audio and https://github.com/keldaanCommunity/pokemonAutoChessMusic
+Kenney particles and sound effects: https://kenney.nl/assets/particle-pack ; https://kenney.nl/assets/impact-sounds ; https://kenney.nl/assets/interface-sounds (CC0 notices included).
+Noto Sans KR: https://github.com/notofonts/noto-cjk (SIL Open Font License, Noto-OFL.txt).
+Galmuri: https://github.com/quiple/galmuri (SIL Open Font License, Galmuri-LICENSE.txt).
+
+Original repository notices are included alongside this file. Detailed acquisition records and source hashes are retained in the development repository.
