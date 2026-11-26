@@ -115,7 +115,7 @@ body {
 
 		<script src="index.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":0,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":false,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":27962188,"index.wasm":39514754},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4,"serviceWorker":"index.service.worker.js"};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":0,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":false,"executable":"index","experimentalVK":true,"fileSizes":{"index.pck":27963852,"index.wasm":39514754},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4,"serviceWorker":"index.service.worker.js"};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
 
@@ -220,9 +220,11 @@ const engine = new Engine(GODOT_CONFIG);
 }());
 		</script>
 	<style>
-html,body { width:100%;height:100%;overflow:hidden;background:#102f56; }
+html,body { width:100%;height:100%;overflow:hidden;background:#102f56;overscroll-behavior:none;-webkit-user-select:none;user-select:none; }
 #safe-game-area { position:fixed;box-sizing:border-box;left:0;top:0;width:100%;height:100%;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);pointer-events:none; }
-#canvas { position:fixed;touch-action:none; }
+#canvas { position:fixed;touch-action:none;-webkit-touch-callout:none; }
+input,textarea,[contenteditable="true"] { -webkit-user-select:text;user-select:text;-webkit-touch-callout:default; }
+button { touch-action:manipulation; }
 #rotate-device { position:fixed;inset:0;z-index:20000;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;background:#102f56;color:#fff9e9;text-align:center;font:600 20px/1.6 sans-serif;padding:32px;touch-action:none; }
 #rotate-device[hidden] { display:none; }
 #rotate-device strong { color:#ffe16b;font-size:28px; }
@@ -234,6 +236,9 @@ html,body { width:100%;height:100%;overflow:hidden;background:#102f56; }
 <script>
 (() => {
   const canvas=document.getElementById('canvas'), safe=document.getElementById('safe-game-area');
+  // Block browser image dragging/callouts only on the play surface; text fields retain editing.
+  canvas.addEventListener('contextmenu',e=>e.preventDefault());
+  canvas.addEventListener('dragstart',e=>e.preventDefault());
   const overlay=document.getElementById('rotate-device'), fullscreen=document.getElementById('game-fullscreen');
   let blocked=false;
   function fit() {
@@ -271,18 +276,26 @@ html,body { width:100%;height:100%;overflow:hidden;background:#102f56; }
 </script>
 
 <script>
-// A waiting PWA update is applied only after the player explicitly chooses it.
+// Updates never replace a running match; apply only from the lobby.
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.ready.then((registration) => {
     let notice;
+    const canvas=document.getElementById('canvas');
+    const render=()=>{
+      if(!notice)return;
+      const playing=canvas.dataset.playing==='true';
+      notice.disabled=playing;notice.hidden=playing;
+      notice.textContent=playing?'새 버전 준비됨 · 로비에서 적용':'새 버전 적용';
+      notice.style.opacity=playing?'.75':'1';
+    };
     const show = () => {
       if (!registration.waiting || notice) return;
-      notice = document.createElement('button');
-      notice.textContent = '새 버전 준비됨 · 경기 후 업데이트';
-      notice.style.cssText = 'position:fixed;top:8px;right:8px;z-index:10000;padding:10px 14px;border:1px solid #56dec0;border-radius:8px;background:#17283b;color:#ecf3f8;font:14px sans-serif;cursor:pointer';
-      notice.addEventListener('click', () => registration.waiting?.postMessage('update'));
-      document.body.appendChild(notice);
+      notice = document.createElement('button');notice.id='app-update-notice';
+      notice.style.cssText = 'position:fixed;top:max(8px,env(safe-area-inset-top));right:max(8px,env(safe-area-inset-right));z-index:10000;min-height:44px;padding:10px 14px;border:2px solid #789b9b;border-top-color:#e4ca78;background:#17252f;color:#e6efe7;font:14px sans-serif;cursor:pointer';
+      notice.addEventListener('click', () => {if(canvas.dataset.playing!=='true')registration.waiting?.postMessage('update');});
+      document.body.appendChild(notice);render();
     };
+    new MutationObserver(render).observe(canvas,{attributes:true,attributeFilter:['data-playing']});
     show();
     registration.addEventListener('updatefound', () => {
       const installing = registration.installing;
