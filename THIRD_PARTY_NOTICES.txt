@@ -26,3 +26,16 @@ ash: No individual credit listed on source entry — https://play.pokemonshowdow
 marnie: Brumirage — https://play.pokemonshowdown.com/sprites/trainers/marnie.png
 serena: kyledove — https://play.pokemonshowdown.com/sprites/trainers/serena.png
 Type reference commit and file hashes: game/assets/ui/synergies/sources.json in development repository.
+
+PANEL ACTION ICONS (2026-11-26)
+Ability Capsule: PokeAPI/sprites, commit c0542f7c51215d9672439012838c99f520596cbd, sprites/items/ability-capsule.png. See PokeAPI-sprites-LICENCE.txt.
+Physical/Special category symbols: https://play.pokemonshowdown.com/sprites/categories/Physical.png and Special.png. Original Pokemon imagery; no separate per-file license asserted. Files unmodified. Used as navigation symbols for normal attack/signature, not damage-class indicators.
+Acquisition URLs and hashes: game/assets/ui/actions/sources.json in development repository.
+
+Updated panel navigation: Punching Glove sprite #749 from https://play.pokemonshowdown.com/sprites/itemicons-sheet.png (24px grid, mapping data/items.js); Z-Ring from https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/z-ring.png. Used as normal-attack and signature navigation art only. Physical/Special category icons are no longer used. Original files retained unmodified; AtlasTexture selects the glove region.
+
+Signature navigation now uses Star Piece: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/star-piece.png (PokeAPI/sprites; source file unchanged). Z-Ring was a previous candidate.
+
+Signature navigation uses TM disc: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/tm-normal.png (PokeAPI/sprites; unmodified source).
+
+Ability navigation uses Reveal Glass: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/reveal-glass.png (PokeAPI/sprites; original file unmodified, displayed using its visible-pixel bounds).
