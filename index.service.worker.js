@@ -4,7 +4,7 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '1795679653|3088996';
+const CACHE_VERSION = '1795701625|2621447';
 /** @type {string} */
 const CACHE_PREFIX = 'PokéChess Arena-sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;

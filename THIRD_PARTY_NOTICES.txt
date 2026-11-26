@@ -11,3 +11,18 @@ Noto Sans KR: https://github.com/notofonts/noto-cjk (SIL Open Font License, Noto
 Galmuri: https://github.com/quiple/galmuri (SIL Open Font License, Galmuri-LICENSE.txt).
 
 Original repository notices are included alongside this file. Detailed acquisition records and source hashes are retained in the development repository.
+
+
+SYNERGY TYPE SYMBOLS AND TRAINER SPRITES (2026-11-26)
+Type symbols: PokeAPI/sprites; Pokémon imagery © The Pokémon Company. See TYPE-LICENCE.txt.
+Trainer sprites: https://play.pokemonshowdown.com/sprites/trainers/
+Source requests artist credit and no edits without permission. Files used unchanged.
+red: No individual credit listed on source entry — https://play.pokemonshowdown.com/sprites/trainers/red.png
+blue: No individual credit listed on source entry — https://play.pokemonshowdown.com/sprites/trainers/blue.png
+lance: No individual credit listed on source entry — https://play.pokemonshowdown.com/sprites/trainers/lance.png
+cynthia: No individual credit listed on source entry — https://play.pokemonshowdown.com/sprites/trainers/cynthia.png
+leon: Brumirage — https://play.pokemonshowdown.com/sprites/trainers/leon.png
+ash: No individual credit listed on source entry — https://play.pokemonshowdown.com/sprites/trainers/ash.png
+marnie: Brumirage — https://play.pokemonshowdown.com/sprites/trainers/marnie.png
+serena: kyledove — https://play.pokemonshowdown.com/sprites/trainers/serena.png
+Type reference commit and file hashes: game/assets/ui/synergies/sources.json in development repository.

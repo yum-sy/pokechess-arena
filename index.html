@@ -115,7 +115,7 @@ body {
 
 		<script src="index.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":0,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":false,"executable":"index","experimentalVK":true,"fileSizes":{"index.pck":27963852,"index.wasm":39514754},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4,"serviceWorker":"index.service.worker.js"};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":0,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":false,"executable":"index","experimentalVK":true,"fileSizes":{"index.pck":28072580,"index.wasm":39514754},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4,"serviceWorker":"index.service.worker.js"};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
 
@@ -228,7 +228,7 @@ button { touch-action:manipulation; }
 #rotate-device { position:fixed;inset:0;z-index:20000;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;background:#102f56;color:#fff9e9;text-align:center;font:600 20px/1.6 sans-serif;padding:32px;touch-action:none; }
 #rotate-device[hidden] { display:none; }
 #rotate-device strong { color:#ffe16b;font-size:28px; }
-#game-fullscreen { position:fixed;right:max(8px,env(safe-area-inset-right));bottom:max(8px,env(safe-area-inset-bottom));z-index:10001;background:#102f56e8;color:#fff9e9;border:2px solid #ffe16b;min-height:40px;padding:6px 12px;font:14px sans-serif; }
+#game-fullscreen { position:fixed;right:max(8px,env(safe-area-inset-right));bottom:max(8px,env(safe-area-inset-bottom));z-index:10001;background:#29324be8;color:#fff9e9;border:2px solid #ffe16b;min-height:40px;padding:6px 12px;font:14px sans-serif; }
 </style>
 <div id="safe-game-area" aria-hidden="true"></div>
 <div id="rotate-device" role="dialog" aria-modal="true" aria-label="가로 화면 안내" hidden><strong>기기를 가로로 돌려 주세요</strong><span>포켓몬과 전장을 넓게 보며 플레이하세요.<br>진행 중인 경기는 계속됩니다.</span></div>
@@ -291,7 +291,7 @@ if ('serviceWorker' in navigator) {
     const show = () => {
       if (!registration.waiting || notice) return;
       notice = document.createElement('button');notice.id='app-update-notice';
-      notice.style.cssText = 'position:fixed;top:max(8px,env(safe-area-inset-top));right:max(8px,env(safe-area-inset-right));z-index:10000;min-height:44px;padding:10px 14px;border:2px solid #789b9b;border-top-color:#e4ca78;background:#17252f;color:#e6efe7;font:14px sans-serif;cursor:pointer';
+      notice.style.cssText = 'position:fixed;top:max(8px,env(safe-area-inset-top));right:max(8px,env(safe-area-inset-right));z-index:10000;min-height:44px;padding:10px 14px;border:2px solid #81745b;border-top-color:#e4ca78;background:#171c30;color:#f4ecd9;font:14px sans-serif;cursor:pointer';
       notice.addEventListener('click', () => {if(canvas.dataset.playing!=='true')registration.waiting?.postMessage('update');});
       document.body.appendChild(notice);render();
     };
@@ -306,7 +306,7 @@ if ('serviceWorker' in navigator) {
 </script>
 
 <style>
-#app-install { position:fixed;left:max(12px,env(safe-area-inset-left));bottom:max(12px,env(safe-area-inset-bottom));z-index:10002;box-sizing:border-box;width:min(520px,calc(100% - 150px - env(safe-area-inset-left) - env(safe-area-inset-right)));padding:12px 14px;background:#10232ff5;border:2px solid #789b9b;border-top:4px solid #e4ca78;box-shadow:4px 4px 0 #06121cb3;color:#fff9e9;font:16px/1.5 sans-serif; }
+#app-install { position:fixed;left:max(12px,env(safe-area-inset-left));bottom:max(12px,env(safe-area-inset-bottom));z-index:10002;box-sizing:border-box;width:min(520px,calc(100% - 150px - env(safe-area-inset-left) - env(safe-area-inset-right)));padding:12px 14px;background:#171c30f5;border:2px solid #81745b;border-top:4px solid #e4ca78;box-shadow:4px 4px 0 #06121cb3;color:#fff9e9;font:16px/1.5 sans-serif; }
 #app-install[hidden] { display:none; }
 #app-install strong { display:block;color:#ffe16b;font-size:18px; }
 #app-install p { margin:4px 0 8px;word-break:keep-all;overflow-wrap:anywhere;white-space:pre-line; }
