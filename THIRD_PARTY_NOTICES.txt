@@ -39,3 +39,6 @@ Signature navigation now uses Star Piece: https://raw.githubusercontent.com/Poke
 Signature navigation uses TM disc: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/tm-normal.png (PokeAPI/sprites; unmodified source).
 
 Ability navigation uses Reveal Glass: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/reveal-glass.png (PokeAPI/sprites; original file unmodified, displayed using its visible-pixel bounds).
+
+Pixel FX Pack by CodeManu — CC0 1.0. https://opengameart.org/content/pixel-fx-pack
+Source PNGs 1.png, 9.png, 10.png copied unmodified as arcane, flame, pulse; runtime atlas animation. Provenance and hashes: game/assets/vfx/codemanu/sources.json.
