@@ -222,12 +222,13 @@ const engine = new Engine(GODOT_CONFIG);
 }());
 		</script>
 	<style>
-#status {background:#171c30; padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);box-sizing:border-box}
-#status-splash {width:min(76vw,680px);height:auto;max-height:52vh;object-fit:contain;margin:0 0 18px;image-rendering:pixelated}
-#title-update-loading {position:fixed;inset:0;z-index:10001;background:#171c30;color:#eee3c9;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(16px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));box-sizing:border-box}
+/* Override Godot's left/right/top/bottom splash constraints explicitly.
+   Both phases anchor the title itself, not the title + progress text group. */
+#status, #title-update-loading {position:fixed;inset:0;background:#171c30;box-sizing:border-box;padding:0}
+#status-splash, #title-update-loading img {position:absolute;left:50%;top:50%;right:auto;bottom:auto;transform:translate(-50%,-50%);display:block;width:min(76vw,680px);height:auto;max-height:52vh;max-width:100%;object-fit:contain;margin:0;image-rendering:pixelated}
+#title-update-loading {z-index:10001;color:#eee3c9}
 #title-update-loading[hidden] {display:none}
-#title-update-loading img {width:min(76vw,680px);max-height:52vh;object-fit:contain;image-rendering:pixelated}
-#title-update-loading p {font:15px sans-serif;margin:16px 0 0}
+#title-update-loading p {position:absolute;left:0;right:0;bottom:max(10%,env(safe-area-inset-bottom));text-align:center;font:15px sans-serif;margin:0;padding:0 max(16px,env(safe-area-inset-left),env(safe-area-inset-right))}
 </style>
 <div id="title-update-loading" hidden role="status" aria-live="polite">
 <img src="index.png" alt="PokéChess Arena" width="768" height="224">
